@@ -1,0 +1,28 @@
+---
+description: Mandatory project rules — repo contract, framework, code, diagrams
+alwaysApply: true
+---
+
+# Mandatory Project Rules
+
+Follow these rules for the entire project. Full detail: [docs/RULES.md](../../docs/RULES.md).
+
+## Repo contract
+- Node from `.nvmrc`; npm only; lockfile committed.
+- Scripts: `dev`, `build`, `lint`, `test` (names fixed; impl per [docs/FRAMEWORK_VITE_VS_NEXT.md](../../docs/FRAMEWORK_VITE_VS_NEXT.md)).
+- Port explicit via env: Vite = `VITE_PORT` + vite.config `strictPort: true`; Next = `PORT` + `next dev --port`.
+- SQLite at gitignored path (e.g. `.data/dev.db`); schema in `db/`, scripts `db:init`, `db:migrate`, `db:seed`.
+
+## Framework
+- One of Vite or Next per repo. Do not mix app entry (e.g. no Next `app/` if Vite-only).
+
+## Code
+- TypeScript strict; no `any` without justification. React: functional components and hooks.
+- Use design system and WCAG 2.1 AA (contrast, focus, touch targets, semantic HTML).
+
+## Diagrams
+- Mermaid diagrams for flows and UX live in **docs/diagrams/** (`.md` files with Mermaid code blocks).
+- When adding or changing a significant flow, add or update the diagram and keep it in sync.
+
+## Docs
+- README: run instructions, port env var, links to REPO_STANDARDS and FRAMEWORK_VITE_VS_NEXT. `.env.example`: all non-secret env vars.
